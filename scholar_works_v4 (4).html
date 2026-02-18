@@ -499,52 +499,61 @@ footer{background:var(--ch);padding:48px 32px 24px}
 .exit-skip{font-size:11px;color:var(--mu);cursor:pointer;text-decoration:underline}
 @media(max-width:480px){.exit-box{padding:28px 20px}.exit-box h2{font-size:22px}.exit-input-row{flex-direction:column}}
 
-/* === DECORATIVE BACKGROUNDS FOR PLAIN SECTIONS === */
-/* Urgency — floating geometric shapes */
-.urgency{position:relative;overflow:hidden}
-.urgency::before{content:'';position:absolute;top:-40px;right:-40px;width:280px;height:280px;border:1.5px solid rgba(200,164,78,.1);border-radius:50%;pointer-events:none}
-.urgency::after{content:'';position:absolute;bottom:-60px;left:-30px;width:200px;height:200px;border:1.5px solid rgba(13,107,78,.06);border-radius:50%;pointer-events:none}
+/* === DECORATIVE BACKGROUNDS === */
+
+/* Hero — concentric rings + diamond */
+.hero::after{content:'';position:absolute;bottom:-120px;left:-120px;width:500px;height:500px;border:2px solid rgba(200,164,78,.06);border-radius:50%;pointer-events:none;box-shadow:0 0 0 40px rgba(200,164,78,.025),0 0 0 80px rgba(200,164,78,.015)}
+
+/* Writers — floating ring + dot cluster bottom-left */
+.writers{position:relative;overflow:hidden}
+.writers::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border:2px solid rgba(200,164,78,.07);border-radius:50%;pointer-events:none;box-shadow:0 0 0 35px rgba(200,164,78,.03)}
+.writers::after{content:'';position:absolute;bottom:30px;left:24px;width:72px;height:72px;background-image:radial-gradient(rgba(13,107,78,.09) 1.5px,transparent 1.5px);background-size:12px 12px;pointer-events:none;border-radius:6px}
+
+/* Urgency — diagonal lines bg + double ring + diamond */
+.urgency{position:relative;overflow:hidden;background-image:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(200,164,78,.025) 50px,rgba(200,164,78,.025) 51px)}
+.urgency::before{content:'';position:absolute;top:-80px;right:-60px;width:360px;height:360px;border:2px solid rgba(200,164,78,.1);border-radius:50%;pointer-events:none;box-shadow:0 0 0 36px rgba(200,164,78,.035)}
+.urgency::after{content:'';position:absolute;bottom:40px;left:48px;width:36px;height:36px;border:1.5px solid rgba(13,107,78,.1);transform:rotate(45deg);pointer-events:none}
 .urgency-in{position:relative;z-index:1}
 
-/* Reviews — diagonal accent line + dot grid */
-.rev-section{position:relative;overflow:hidden}
-.rev-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
-  radial-gradient(circle at 5% 15%,rgba(13,107,78,.03) 0%,transparent 40%),
-  radial-gradient(circle at 95% 85%,rgba(200,164,78,.04) 0%,transparent 35%);
-  pointer-events:none}
-.rev-section::after{content:'';position:absolute;top:24px;right:32px;width:64px;height:64px;background-image:radial-gradient(rgba(200,164,78,.12) 1.5px,transparent 1.5px);background-size:10px 10px;pointer-events:none;border-radius:4px}
+/* Reviews — dot grid bg + corner cluster + radial glows */
+.rev-section{position:relative;overflow:hidden;background-image:radial-gradient(rgba(200,164,78,.035) 1px,transparent 1px);background-size:28px 28px;background-position:14px 14px}
+.rev-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 3% 12%,rgba(13,107,78,.05) 0%,transparent 35%),radial-gradient(circle at 97% 88%,rgba(200,164,78,.06) 0%,transparent 30%);pointer-events:none}
+.rev-section::after{content:'';position:absolute;top:20px;right:28px;width:96px;height:96px;background-image:radial-gradient(rgba(200,164,78,.16) 2px,transparent 2px);background-size:14px 14px;pointer-events:none;border-radius:8px}
 
-/* Features — corner brackets + soft glow */
-.wh{position:relative;overflow:hidden}
-.wh::before{content:'';position:absolute;top:32px;right:24px;width:60px;height:60px;border-top:2px solid rgba(200,164,78,.12);border-right:2px solid rgba(200,164,78,.12);border-radius:0 8px 0 0;pointer-events:none}
-.wh::after{content:'';position:absolute;bottom:32px;left:24px;width:60px;height:60px;border-bottom:2px solid rgba(13,107,78,.08);border-left:2px solid rgba(13,107,78,.08);border-radius:0 0 0 8px;pointer-events:none}
+/* Features — corner brackets + cross pattern bg */
+.wh{position:relative;overflow:hidden;background-image:radial-gradient(rgba(13,107,78,.02) 1px,transparent 1px),radial-gradient(rgba(13,107,78,.02) 1px,transparent 1px);background-size:32px 32px;background-position:0 0,16px 16px}
+.wh::before{content:'';position:absolute;top:28px;right:20px;width:80px;height:80px;border-top:2px solid rgba(200,164,78,.14);border-right:2px solid rgba(200,164,78,.14);border-radius:0 12px 0 0;pointer-events:none}
+.wh::after{content:'';position:absolute;bottom:28px;left:20px;width:80px;height:80px;border-bottom:2px solid rgba(13,107,78,.1);border-left:2px solid rgba(13,107,78,.1);border-radius:0 0 0 12px;pointer-events:none}
 
-/* Compare — top-right decorative grid */
-.cmp{position:relative;overflow:hidden}
-.cmp::after{content:'';position:absolute;bottom:40px;right:32px;width:48px;height:48px;background-image:radial-gradient(rgba(13,107,78,.08) 1.5px,transparent 1.5px);background-size:10px 10px;pointer-events:none;border-radius:4px}
+/* Compare — ring left + dot grid right + diagonal lines */
+.cmp{position:relative;overflow:hidden;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(13,107,78,.015) 60px,rgba(13,107,78,.015) 61px)}
+.cmp::before{content:'';position:absolute;top:50%;left:-90px;width:220px;height:220px;border:2px solid rgba(200,164,78,.07);border-radius:50%;transform:translateY(-50%);pointer-events:none}
+.cmp::after{content:'';position:absolute;bottom:36px;right:28px;width:64px;height:64px;background-image:radial-gradient(rgba(13,107,78,.1) 1.5px,transparent 1.5px);background-size:11px 11px;pointer-events:none;border-radius:6px}
 
-/* FAQ — soft glow + corner bracket */
-.faq-home{position:relative;overflow:hidden}
-.faq-home::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
-  radial-gradient(ellipse at 90% 10%,rgba(200,164,78,.04) 0%,transparent 50%),
-  radial-gradient(ellipse at 10% 90%,rgba(13,107,78,.03) 0%,transparent 50%);
-  pointer-events:none}
-.faq-home::after{content:'';position:absolute;top:24px;left:24px;width:48px;height:48px;border-top:2px solid rgba(13,107,78,.08);border-left:2px solid rgba(13,107,78,.08);border-radius:8px 0 0 0;pointer-events:none}
+/* FAQ — radial glows + corner brackets both sides + zigzag accent */
+.faq-home{position:relative;overflow:hidden;background-image:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(200,164,78,.02) 80px,rgba(200,164,78,.02) 81px)}
+.faq-home::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 92% 8%,rgba(200,164,78,.06) 0%,transparent 40%),radial-gradient(ellipse at 8% 92%,rgba(13,107,78,.04) 0%,transparent 40%);pointer-events:none}
+.faq-home::after{content:'';position:absolute;top:20px;left:20px;width:56px;height:56px;border-top:2.5px solid rgba(13,107,78,.12);border-left:2.5px solid rgba(13,107,78,.12);border-radius:10px 0 0 0;pointer-events:none}
 
-/* Turnitin — soft light beam */
+/* Turnitin — spotlight + ring + diamond */
 .turnitin{position:relative;overflow:hidden}
-.turnitin::after{content:'';position:absolute;top:-80px;right:-40px;width:350px;height:350px;background:radial-gradient(circle,rgba(13,107,78,.04) 0%,transparent 60%);pointer-events:none}
+.turnitin::before{content:'';position:absolute;bottom:40px;right:40px;width:32px;height:32px;border:1.5px solid rgba(200,164,78,.12);transform:rotate(45deg);pointer-events:none}
+.turnitin::after{content:'';position:absolute;top:-100px;right:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(13,107,78,.05) 0%,transparent 55%);pointer-events:none}
 
-/* Subjects — top gold line */
-.subj{position:relative;background:var(--wh)}
-.subj::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);pointer-events:none}
+/* Subjects — gold accent line + floating ring + chevron marks */
+.subj{position:relative;background:var(--wh);background-image:repeating-linear-gradient(-45deg,transparent,transparent 55px,rgba(200,164,78,.02) 55px,rgba(200,164,78,.02) 56px)}
+.subj::before{content:'';position:absolute;top:30px;left:-50px;width:180px;height:180px;border:2px solid rgba(200,164,78,.06);border-radius:50%;pointer-events:none}
+.subj::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);pointer-events:none}
 
-/* Process — ring accent */
+/* Process — double ring + dot cluster top-left */
 .proc{position:relative;overflow:hidden}
-.proc::after{content:'';position:absolute;top:50%;right:-50px;width:200px;height:200px;border:1.5px solid rgba(13,107,78,.06);border-radius:50%;pointer-events:none;transform:translateY(-50%)}
+.proc::before{content:'';position:absolute;top:24px;left:20px;width:56px;height:56px;background-image:radial-gradient(rgba(200,164,78,.1) 1.5px,transparent 1.5px);background-size:10px 10px;pointer-events:none;border-radius:6px}
+.proc::after{content:'';position:absolute;top:50%;right:-60px;width:260px;height:260px;border:2px solid rgba(13,107,78,.06);border-radius:50%;pointer-events:none;transform:translateY(-50%);box-shadow:0 0 0 40px rgba(13,107,78,.025)}
 
-/* Hero — extra depth */
-.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border:1.5px solid rgba(200,164,78,.06);border-radius:50%;pointer-events:none}
+/* AI Detector — subtle cross pattern */
+.aidet{position:relative;overflow:hidden;background-image:radial-gradient(rgba(13,107,78,.025) 1px,transparent 1px);background-size:24px 24px}
+.aidet::before{content:'';position:absolute;bottom:-40px;left:-40px;width:240px;height:240px;border:2px solid rgba(200,164,78,.06);border-radius:50%;pointer-events:none}
+.aidet::after{content:'';position:absolute;top:24px;right:24px;width:40px;height:40px;border:1.5px solid rgba(13,107,78,.08);transform:rotate(45deg);pointer-events:none}
 
 /* === LIVE ORDER FEED === */
 .live-feed{position:fixed;bottom:28px;left:28px;z-index:1400;max-width:320px;pointer-events:none}
